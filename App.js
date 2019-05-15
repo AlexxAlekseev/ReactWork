@@ -7,14 +7,16 @@
  */
 
 import React, { Component } from "react";
+import { Platform, TouchableOpacity, StyleSheet, Text } from "react-native";
 import {
-  Platform,
-  Text,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  Alert
-} from "react-native";
+  Container,
+  Header,
+  Content,
+  Form,
+  Item,
+  Input,
+  Label
+} from "native-base";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -23,34 +25,59 @@ const instructions = Platform.select({
     "Shake or press menu button for dev menu"
 });
 
-export default class Button extends Component {
-  onPressButton() {
-    Alert.alert("Аня самая лучшая в мире!");
-  }
-
+export default class Authorization extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={this.onPressButton}>
-          <Text>Нажми сюда</Text>
+      <Container style={styles.background}>
+        <Header />
+        <Content>
+          <Form style={styles.input}>
+            <Item floatingLabel>
+              <Label>Username</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel>
+              <Label>Password</Label>
+              <Input />
+            </Item>
+          </Form>
+        </Content>
+        <TouchableOpacity style={styles.SignButton}>
+          <Text>Sign In</Text>
+        </TouchableOpacity>
+      </Container>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  SignButton: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: "#1E90FF"
+  },
+  background: {
+    flexDirection: "column",
+    backgroundColor: "#FFF5EE"
+  },
+  input: {
+    backgroundColor: "#FFFFFF"
+  }
+});
+
+/*
+export class ButtonSign extends Component {
+  render() {
+    return (
+      <View style={styles.background}>
+        <TouchableOpacity style={styles.SignButton}>
+          <Text>Sign In</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFF5EE"
-  },
-
-  button: {
-    alignItems: "center",
-    backgroundColor: "#1E90FF",
-    padding: 10,
-    borderRadius: 10
-  }
-});
+*/
