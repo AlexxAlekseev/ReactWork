@@ -42,9 +42,6 @@ export default class Authorization extends Component {
             </Item>
           </Form>
         </Content>
-        <TouchableOpacity style={styles.SignButton}>
-          <Text>Sign In</Text>
-        </TouchableOpacity>
       </Container>
     );
   }
@@ -52,18 +49,20 @@ export default class Authorization extends Component {
 
 const styles = StyleSheet.create({
   SignButton: {
-    justifyContent: "center",
     alignItems: "center",
-    padding: 10,
+    padding: 15,
     borderRadius: 10,
     backgroundColor: "#1E90FF"
   },
   background: {
-    flexDirection: "column",
     backgroundColor: "#FFF5EE"
   },
   input: {
+    fontSize: 18,
     backgroundColor: "#FFFFFF"
+  },
+  Text: {
+    fontSize: 18
   }
 });
 
